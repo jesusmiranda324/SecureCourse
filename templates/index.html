@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureCourse Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>SecureCourse</h1>
+        <p>Course Materials and Student Resources</p>
+        <input type = "button" value = "Login" onclick = "window.location.href = '{{ url_for('login') }}';" />
+    </header>
+
+    <main>
+        <h2>Welcome to SecureCourse</h2>
+        <p>Access your course materials, assignments, and resources.</p>
+    </main>
+</body>
+</html>

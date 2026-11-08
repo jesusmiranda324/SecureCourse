@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Assignment - SecureCourse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>SecureCourse</h1>
+        <p>Student Assignment Submission</p>
+    </header>
+
+    <main>
+        <h2>Submit an Assignment</h2>
+
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <label for="file">Choose your assignment:</label>
+            <input type="file" id="file" name="file" required>
+
+            <br><br>
+
+            <button type="submit">Submit Assignment</button>
+        </form>
+
+        <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+    </main>
+</body>
+</html>

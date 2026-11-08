@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - SecureCourse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>SecureCourse</h1>
+        <p>{{ title }}</p>
+    </header>
+
+    <main>
+        <h2>{{ title }}</h2>
+
+        {% if files %}
+            <h3>Available Files</h3>
+
+            <ul>
+                {% for filename in files %}
+                    <li>
+                        {{ filename }}
+                        <a href="{{ url_for('download_file', category=category, filename=filename) }}">
+                            Download
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No files are currently available.</p>
+        {% endif %}
+
+        <p><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
+    </main>
+</body>
+</html>
