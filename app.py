@@ -10,7 +10,7 @@ from werkzeug.security import check_password_hash
 from flask_wtf.csrf import CSRFProtect
 app = Flask(__name__)
 
-app.config["SECRET_KEY"] = "temporary-development-key-change-before-deployment"
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "temporary-development-key-change-before-deployment")
 
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"

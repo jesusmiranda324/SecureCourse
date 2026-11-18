@@ -2,9 +2,3 @@
 __pycache__/
 *.pyc
 .env
-instance/*.db
-.venv/
-__pycache__/
-*.pyc
-instance/
-.env
